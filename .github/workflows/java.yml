@@ -27,6 +27,7 @@
 name: Java Check, Build and Push
 
 on:
+  workflow_dispatch:
   pull_request:
     types: [opened]
     branches: [ "master" ]
