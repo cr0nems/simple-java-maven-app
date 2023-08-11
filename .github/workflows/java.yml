@@ -27,10 +27,12 @@
 name: Java Check, Build and Push
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
+    types: [opened]
     branches: [ "master" ]
+    paths:
+      - "/**"
+    
 
 
 permissions:
