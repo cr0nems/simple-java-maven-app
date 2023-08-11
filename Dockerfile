@@ -1,4 +1,5 @@
 FROM openjdk:17
-MAINTAINER baeldung.com
-COPY main/java/com/mycompany/App.jar
-ENTRYPOINT ["java","-jar","/App.jar"]
+MAINTAINER cr0nems
+COPY target/my-app-1.0-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+
