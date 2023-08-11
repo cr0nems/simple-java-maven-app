@@ -32,7 +32,7 @@ on:
     branches:
       - master
     paths:
-      - "/**"
+      - "**"
   pull_request:
     types: [opened]
     branches: [ "master" ]
