@@ -1,4 +1,4 @@
 FROM openjdk:17
 MAINTAINER cr0nems
-COPY main/java/com/mycompany/app.jar
+COPY target/my-app-1.0-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
