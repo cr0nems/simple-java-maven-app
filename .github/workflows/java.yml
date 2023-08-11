@@ -37,8 +37,11 @@ permissions:
   pull-requests: read # allows SonarQube to decorate PRs with analysis results
 
 jobs:
-  Build:
+  BP:
     name: Build & Push
+    defaults:
+      run:
+        working-directory: ./src
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
