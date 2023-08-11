@@ -61,5 +61,11 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml        
   
-
+      - name: Build and Publish the Docker image for ${{ github.repository }}
+        uses: macbre/push-to-ghcr@master
+        with:
+          image_name: ${{ github.repository }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+          
 
