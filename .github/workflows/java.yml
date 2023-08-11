@@ -39,9 +39,6 @@ permissions:
 jobs:
   BP:
     name: Build & Push
-    defaults:
-      run:
-        working-directory: ./src
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
