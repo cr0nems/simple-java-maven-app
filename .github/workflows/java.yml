@@ -28,6 +28,11 @@ name: Java Check, Build and Push
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - "/**"
   pull_request:
     types: [opened]
     branches: [ "master" ]
