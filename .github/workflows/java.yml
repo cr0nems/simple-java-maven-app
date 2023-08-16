@@ -87,6 +87,7 @@ jobs:
       - name: JIB container build and publish
         uses: MathieuSoysal/jib-container-publish.yml@v2.1.4
         with:
+          working-dir: java
           PASSWORD: ${{ secrets.TOKEN }}
           
           
