@@ -87,6 +87,7 @@ jobs:
       - name: JIB container build and publish
         uses: cr0nems/jib-container-publish.yml@main
         with:
+          working-dir: java
           PASSWORD: ${{ secrets.TOKEN }}
           
           
