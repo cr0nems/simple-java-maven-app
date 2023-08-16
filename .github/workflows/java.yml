@@ -73,6 +73,7 @@ jobs:
       - name: Build and Publish the Docker image for ${{ github.repository }}
         uses: macbre/push-to-ghcr@master
         with:
+          working-dir: java
           image_name: ${{ github.repository }}
           github_token: ${{ secrets.TOKEN }}
           
