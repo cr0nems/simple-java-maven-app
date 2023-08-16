@@ -81,7 +81,7 @@ jobs:
   publish:
     needs: sonarqube
     name: Build & Publish JAR
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./java
