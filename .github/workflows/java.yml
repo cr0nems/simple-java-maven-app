@@ -76,7 +76,7 @@ jobs:
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=cr0nems_simple-java-maven-app
         
   publish:
-    needs:sonarqube
+    needs: sonarqube
     name: Build & Publish JAR
     runs-on: ubuntu-latest
     steps:
