@@ -85,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: JIB container build and publish
-        working-dir: java
+        working-directory: java
         uses: MathieuSoysal/jib-container-publish.yml@v2.1.4
         with:
           PASSWORD: ${{ secrets.TOKEN }}
