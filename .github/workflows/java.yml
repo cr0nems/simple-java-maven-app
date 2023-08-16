@@ -86,7 +86,7 @@ jobs:
     steps:
       - name: JIB container build and publish
         working-directory: java
-        uses: MathieuSoysal/jib-container-publish.yml@v2.1.4
+        uses: cr0nems/jib-container-publish.yml@main
         with:
           PASSWORD: ${{ secrets.TOKEN }}
           
