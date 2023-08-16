@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./java
+        working-directory: java
     steps:
       - uses: actions/checkout@v3
         with:
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./java
+        working-directory: java
     steps:
       - name: JIB container build and publish
         uses: MathieuSoysal/jib-container-publish.yml@v2.1.4
