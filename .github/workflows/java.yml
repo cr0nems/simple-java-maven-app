@@ -32,7 +32,7 @@ on:
     branches:
       - master
     paths:
-      - "**"
+      - "./java/**"
   pull_request:
     types: [opened]
     branches: [ "master" ]
@@ -48,6 +48,9 @@ jobs:
   sonarqube:
     name: SonarQube Check
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./java
     steps:
       - uses: actions/checkout@v3
         with:
@@ -78,7 +81,10 @@ jobs:
   publish:
     needs: sonarqube
     name: Build & Publish JAR
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-lates
+    defaults:
+      run:
+        working-directory: ./java
     steps:
       - name: JIB container build and publish
         uses: MathieuSoysal/jib-container-publish.yml@v2.1.4
