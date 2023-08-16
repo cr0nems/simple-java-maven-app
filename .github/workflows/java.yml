@@ -81,10 +81,7 @@ jobs:
   publish:
     needs: sonarqube
     name: Build & Publish JAR
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: java
+    runs-on: ubuntu-latesT
     steps:
       - name: JIB container build and publish
         uses: MathieuSoysal/jib-container-publish.yml@v2.1.4
