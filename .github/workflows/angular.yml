@@ -26,3 +26,11 @@ jobs:
 
       - name: Build
         run: npm run build
+
+
+      - name: Push to GHCR
+        uses: macbre/push-to-ghcr@v13
+          with:
+            context: angular
+            github_token: ${{ secrets.TOKEN }}
+            image_name: ${{ github.repository }}-angular
