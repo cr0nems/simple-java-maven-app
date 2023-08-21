@@ -4,22 +4,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  Build:
+    name: Setup Node.js and build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: angular
+      steps:
+        - uses: actions/checkout@v3
 
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
+        - name: Setup Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
 
-    steps:
-    - uses: actions/checkout@v3
+        - name: Install dependencies
+          run: npm install
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
+        - name: Run tests
+          run: npm run test
 
-    - name: Build
-      run: |
-        npm install
-        gulp
+        - name: Build
+          run: npm run build
