@@ -74,7 +74,7 @@ jobs:
         uses: macbre/push-to-ghcr@master
         with:
           working-dir: java
-          image_name: ${{ github.repository }}
+          image_name: ${{ github.repository }}-java
           github_token: ${{ secrets.TOKEN }}
           
           
