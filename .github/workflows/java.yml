@@ -84,10 +84,13 @@ jobs:
     name: Build & Publish JAR
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Go to working directory
+        run: |
+          cd java
       - name: JIB container build and publish
         uses: cr0nems/jib-container-publish.yml@main
         with:
-          working-dir: java
           PASSWORD: ${{ secrets.TOKEN }}
           
           
