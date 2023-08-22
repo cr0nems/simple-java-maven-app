@@ -31,9 +31,9 @@ on:
   push:
     branches:
       - master
-      - feature-workflow-rebuild
+      - feature-*
     paths:
-      - "./java/**"
+      - "java/**"
   pull_request:
     types: [opened]
     branches: [ "master" ]
