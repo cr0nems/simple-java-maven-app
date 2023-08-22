@@ -1,25 +1,37 @@
-name: NodeJS with Gulp
+name: Angular Check, Build and Push
 
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  Build:
+    name: Setup Node.js and build
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-
+    defaults:
+      run:
+        working-directory: angular
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: Build
-      run: |
-        npm install
-        gulp
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test:headless
+
+      - name: Build
+        run: npm run build
+
+
+      - name: Push to GHCR
+        uses: macbre/push-to-ghcr@v13
+        with:
+          dockerfile: ./angular/Dockerfile
+          context: ./angular
+          github_token: ${{ secrets.TOKEN }}
+          image_name: ${{ github.repository }}-angular
