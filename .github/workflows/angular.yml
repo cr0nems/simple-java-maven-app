@@ -2,6 +2,12 @@ name: Angular Check, Build and Push
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
+      - feature-*
+    paths:
+      - "angular/**"
 
 jobs:
   Build:
