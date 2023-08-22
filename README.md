@@ -31,5 +31,5 @@ The Java/Maven Pipeline is only a bit more complicated than the Angular one (And
   7. Also check that the `<name>` and `<artifactId>` match the name of the reffering sonarcloud/sonarqube project.
   8. Replace the values of the sonar-project.properties with your values. You received thes when you created the angular project in sonarcloud/sonarqube.
   10. Your Angular project needs a Dockerfile for Building the image. Create one that works with your project.
-  11. Using a private Sonarqube instance may need additonal work. Check what needs to be added on the specific workflow documentation. you may need to swap the workflow entirely. Goodspeed you.
+  11. Using a private Sonarqube instance may need additonal work. Check what needs to be added on the specific workflow documentation. you may need to swap the workflow entirely. Godspeed you.
   12. And that should be it. 
