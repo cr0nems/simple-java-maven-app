@@ -20,7 +20,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}  
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_ANGULAR }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKE_ANGULAR }}
         with:
           projectBaseDir: ./angular/
   
