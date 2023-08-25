@@ -27,9 +27,9 @@ The Java/Maven Pipeline is only a bit more complicated than the Angular one (And
      And that's it. I won't go into detail how and why and where you create these. You can find this information with a quick search in your preffered Browser.
   4. change the step `Build and analyze` in the sonarqube job in the java.yml. You have to change the `-Dsonar.projectKey=` with your own value according to sonarcloud/sonarqube.
   5. as designed by me here. Sonarcloud gets triggered by and also checks the master/main branch and every branch starting as `feature-xxxx` branch. This is true for angular and java. Change that if you don't want that by removing the branches.
-  6. In the pom.xml of the Java/Maven Project add following part: ``` <properties> <sonar.organization>YOUR-ORGANIZATION-NAME</sonar.organization> <sonar.host.url>YOUR-SONARQUBE-HOST-URL/sonar.host.url> </properties> ``` according to your specific use of Sonarcloud/SonarQube. you got the right values when creating the java/maven project in sonarcloud or sonarqube.
+  6. In the pom.xml of the Java/Maven Project change following part: ``` <properties> <sonar.organization>YOUR-ORGANIZATION-NAME</sonar.organization> <sonar.host.url>YOUR-SONARQUBE-HOST-URL/sonar.host.url> </properties> ``` according to your specific use of Sonarcloud/SonarQube. you got the right values when creating the java/maven project in sonarcloud or sonarqube.
   7. Also check that the `<name>` and `<artifactId>` match the name of the reffering sonarcloud/sonarqube project.
-  8. Replace the values of the sonar-project.properties with your values. You received thes when you created the angular project in sonarcloud/sonarqube.
+  8. Replace the values of the sonar-project.properties with your values. You received these when you created the angular project in sonarcloud/sonarqube.
   10. Your Angular project needs a Dockerfile for Building the image. Create one that works with your project.
   11. Using a private Sonarqube instance may need additonal work. Check what needs to be added on the specific workflow documentation. you may need to swap the workflow entirely. Godspeed you.
   12. And that should be it. 
