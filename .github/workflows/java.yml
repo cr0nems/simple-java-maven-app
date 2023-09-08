@@ -95,6 +95,7 @@ jobs:
     name: build up k3d simu cluster
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: AbsaOSS/k3d-action
         uses: AbsaOSS/k3d-action@v2.4.0
         with:
@@ -105,6 +106,16 @@ jobs:
             --no-lb
             --k3s-arg "--no-deploy=traefik,servicelb,metrics-server@server:*"
             -p "8083:80@agent:0:direct"
+      - name: Cluster info
+        run: | 
+          kubectl cluster-info --context k3d-mock-up
+      - name: Nodes
+        run: | 
+          docker ps -a
+          kubectl config use-context k3d-mock-up
+          kubectl get nodes -o wide
+      - name: Network
+        run: docker network inspect k3d-mock-up
  
             
         
