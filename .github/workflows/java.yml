@@ -90,6 +90,26 @@ jobs:
         with:
           PASSWORD: ${{ secrets.TOKEN }}
           working-dir: java
+  createCluster: 
+    needs: publish
+    name: build up k3d simu cluster
+    runs-on: ubuntu-latest
+    steps:
+      - name: AbsaOSS/k3d-action
+        uses: AbsaOSS/k3d-action@v2.4.0
+        with:
+          cluster-name: mock-up
+          args: >-
+            --image docker.io/rancher/k3s:v1.26.7-k3s1
+            --agents 2
+            --no-lb
+            --k3s-arg "--no-deploy=traefik,servicelb,metrics-server@server:*"
+            -p "8083:80@agent:0:direct"
+ 
+            
+        
+
+
 
           
           
