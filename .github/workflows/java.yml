@@ -104,7 +104,7 @@ jobs:
             --image docker.io/rancher/k3s:v1.26.7-k3s1
             --agents 2
             --no-lb
-            --k3s-arg "--no-deploy=traefik,servicelb,metrics-server@server:*"
+            --k3s-arg "--disable=traefik,servicelb,metrics-server@server:*"
             -p "8083:80@agent:0:direct"
       - name: Cluster info
         run: | 
