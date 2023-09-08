@@ -120,8 +120,8 @@ jobs:
       - name: Deploy
         run: |
           cd java
-          kubectl run -n default -f deployment.yaml
-          kubectl get pods -n defualt
+          kubectl apply -f deployment.yaml
+          kubectl get pods -n default
      
             
         
